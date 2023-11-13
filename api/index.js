@@ -3,11 +3,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
+const dotenv = require('dotenv')
 
 const app = express();
 const port = 8000;
 const cors = require("cors");
 app.use(cors());
+dotenv.config()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -19,7 +21,7 @@ app.listen(port, () => {
   });
 
 mongoose
-  .connect("mongodb+srv://dominikDev:dominik@cluster0.nuixg11.mongodb.net/", {
+  .connect(process.env.MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

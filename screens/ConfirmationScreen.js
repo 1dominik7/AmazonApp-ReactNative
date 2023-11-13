@@ -77,7 +77,7 @@ const ConfirmationScreen = () => {
   const pay = async () => {
       try {
         const options = {
-          key: "rzp_test_17QxWCCYrmkaH4",
+          key: process.env.RazorKey,
           description: "Adding To Wallet",
           currency: "USD",
           name: "Amazon",

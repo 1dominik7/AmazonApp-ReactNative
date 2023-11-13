@@ -178,7 +178,7 @@ const ProfileScreen = () => {
        ||
        (option === 'favourite' &&
        <View className="flex-row flex-wrap">
-        {fav?.map(item =>
+        {fav?.map((item) =>
           (
             <Pressable 
             onPress={() =>  navigation.navigate("Info", {
@@ -193,9 +193,9 @@ const ProfileScreen = () => {
               item: item,
             })}
             className="mt-2 p-2 rounded-xl b-1 border-gray-400 mx-2 justify-center items-center"
-            key={item._id}>
+            key={item.id}>
                   <Image
-                    source={{ uri: item.image }}
+                    source={ item?.image }
                     style={{ width: 140, height: 160, resizeMode: "contain" }}
                   />
             </Pressable>
@@ -213,9 +213,9 @@ const ProfileScreen = () => {
             <Text className="font-semibold">Account created: {moment(user?.createdAt).format("DD MMM YY")}</Text>
         </View>
         <Text className="font-bold text-base">Your Addresses</Text>
-            {user?.addresses?.map(address =>
+            {user?.addresses?.map((address,index) =>
               (
-                <View className="border-2 border-gray-300 p-2 rounded-lg my-1">
+                <View key={index} className="border-2 border-gray-300 p-2 rounded-lg my-1">
                   <Text>Name: {address.name}</Text>
                   <Text>Street: {address.street}</Text>
                   <Text>Postal Code: {address.postalCode}</Text>

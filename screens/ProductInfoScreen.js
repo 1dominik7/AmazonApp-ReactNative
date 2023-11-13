@@ -118,7 +118,7 @@ const ProductInfoScreen = () => {
         {route?.params?.image &&
           <ImageBackground
             style={{ width, height, marginTop: 25 }}
-            source={{ uri: route?.params?.image }}
+            source={ route?.params?.image }
             imageStyle={{resizeMode: "contain" }}
           >
             <View className="p-2 flex-row items-center justify-between">
